@@ -19,7 +19,7 @@ var RootCmd = &cobra.Command{
 	Short: "AWS Login tool",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("aws-login version: 0.1.0 by Ady Buxton")
+		fmt.Println("aws-login version: 0.1.1 by Ady Buxton")
 	},
 }
 
@@ -70,7 +70,8 @@ func initConfigFromFile() {
 	if runtime.GOOS == "windows" {
 		viper.SetConfigFile(fmt.Sprintf("%s/.aws-login", home))
 	} else {
-		viper.SetConfigFile(fmt.Sprintf("$HOME/.aws-login"))
+		//viper.SetConfigFile(fmt.Sprintf("$HOME/.aws-login"))
+		viper.SetConfigFile(fmt.Sprintf(".aws-login"))
 	}
 
 	if err := viper.ReadInConfig(); err != nil {

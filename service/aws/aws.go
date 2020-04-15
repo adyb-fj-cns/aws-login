@@ -90,11 +90,10 @@ func outputWindowsAWSCredentials(profile string, region string, accessKey string
 }
 
 func outputAWSCredentials(profile string, region string, accessKey string, secretKey string, sessionToken string) {
-	// Not tested yet
-	fmt.Printf("aws configure set aws_access_key_id %s --profile %s;\n", accessKey, profile)
-	fmt.Printf("aws configure set aws_secret_access_key %s --profile %s;\n", secretKey, profile)
-	fmt.Printf("aws configure set region %s --profile %s;\n", region, profile)
-	fmt.Printf("aws configure set format json --profile %s;\n", profile)
+	fmt.Printf("export AWS_ACCESS_KEY_ID=\"%s\"\n", accessKey)
+	fmt.Printf("export AWS_SECRET_ACCESS_KEY=\"%s\"\n", secretKey)
+	fmt.Printf("export AWS_SESSION_TOKEN=\"%s\"\n", sessionToken)
+	fmt.Printf("export AWS_REGION=\"%s\"\n", region)
 }
 
 func setLinuxAWSCredentials(profile string, region string, accessKey string, secretKey string) {
